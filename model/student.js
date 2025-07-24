@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
-const Set = sequelize.define("Set", {
+const Student = sequelize.define("Student", {
   id: { 
     type: DataTypes.BIGINT.UNSIGNED, 
     autoIncrement: true, 
@@ -11,25 +11,37 @@ const Set = sequelize.define("Set", {
     type: DataTypes.STRING, 
     allowNull: false 
 },
-  for: { 
-    type: DataTypes.STRING, 
-    allowNull: true 
-},
-  help_at: { 
-    type: DataTypes.DATE, 
-    allowNull: true 
-},
-  duration: { 
+  rollno: { 
     type: DataTypes.INTEGER, 
     allowNull: true 
 },
-  question: { 
-    type: DataTypes.JSON, 
+  classes: { 
+    type: DataTypes.STRING, 
+    allowNull: true 
+},
+  email: { 
+    type: DataTypes.STRING, 
+    allowNull: true 
+},
+  password: { 
+    type: DataTypes.STRING, 
+    allowNull: true 
+},
+  DOB: { 
+    type: DataTypes.DATE, 
+    allowNull: true 
+},
+  age: { 
+    type: DataTypes.INTEGER, 
+    allowNull: true 
+},
+  gender: { 
+    type: DataTypes.STRING, 
     allowNull: true 
 },
 },{
-    tableName: "sets",
+    tableName: "students",
     timestamps: false
 });
 
-module.exports = Set;
+module.exports = Student;

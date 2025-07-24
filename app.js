@@ -2,6 +2,7 @@ const express = require("express");
 const sequelize = require("./config/db");
 const adminRouter = require("./routes/admin_router");
 const userRouter = require("./routes/user_router");
+const studentRouter = require("./routes/student_router");
 require("dotenv").config();
 
 
@@ -17,6 +18,7 @@ sequelize.sync()
 
 app.use("/admin", adminRouter)
 app.use("/user", userRouter)
+app.use("/student", studentRouter)
 
 
 // Start server
