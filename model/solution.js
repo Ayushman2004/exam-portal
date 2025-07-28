@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
-const Set = sequelize.define("Set", {
+const Solution = sequelize.define("Solution", {
   id: { 
     type: DataTypes.BIGINT.UNSIGNED, 
     autoIncrement: true, 
@@ -11,25 +11,21 @@ const Set = sequelize.define("Set", {
     type: DataTypes.STRING, 
     allowNull: false 
 },
-  for_class: { 
+  class: { 
     type: DataTypes.STRING, 
     allowNull: true 
 },
-  held_at: { 
-    type: DataTypes.DATE, 
+  exam_name: { 
+    type: DataTypes.STRING, 
     allowNull: true 
 },
-  duration: { 
-    type: DataTypes.INTEGER, 
-    allowNull: true 
-},
-  question: { 
+  solutions: { 
     type: DataTypes.JSON, 
     allowNull: true 
 },
 },{
-    tableName: "sets",
+    tableName: "solutions",
     timestamps: false
 });
 
-module.exports = Set;
+module.exports = Solution;
