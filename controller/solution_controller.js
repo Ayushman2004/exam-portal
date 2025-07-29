@@ -70,12 +70,14 @@ exports.grade =  async(req, res) => {
         }
     });
 
+    // if no solution submitted
     if (!solutions.length) res.status(404).json({ error: "No solution submitted" })
 
     for (const solution of solutions) {
         let marks = 0;
         const studentAnswers = solution.solutions;
 
+        //marking
         for (const [qNo, correctAns] of Object.entries(marking_scheme)) {
             if (studentAnswers[qNo] !== undefined && studentAnswers[qNo] === correctAns) {
                 marks += 1;
@@ -90,6 +92,7 @@ exports.grade =  async(req, res) => {
             }
         })
 
+        //if already graded
         if(g){
             console.log("rollno: " + solution.rollno + " already gradered")
         }
@@ -113,7 +116,8 @@ exports.grade_fetch =  async(req, res) => {
     if(req.user.type != "admin") return res.status(404).json({ error: "Only admin authorized"})
 
     const { for_class, exam_name } = req.body
-
+    
+    //fetch grades
     const grades = await Grade.findAll({
         where: {
             for_class,
