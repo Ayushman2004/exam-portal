@@ -1,5 +1,3 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const Solution = require("../model/solution");
 const Student = require("../model/student");
 const Set = require("../model/set");
