@@ -97,15 +97,32 @@ exports.grade =  async(req, res) => {
         }
         else{
             await Grade.create({
-            name: solution.name,
-            rollno: solution.rollno,
-            for_class,
-            exam_name,
-            marks
-        });
+                name: solution.name,
+                rollno: solution.rollno,
+                for_class,
+                exam_name,
+                marks
+            });
         }
     }
 
     res.status(200).json({ message: "Grades calculated and saved successfully" });
+
+}
+
+exports.grade_fetch =  async(req, res) => {
+
+    if(req.user.type != "admin") return res.status(404).json({ error: "Only admin authorized"})
+
+    const { for_class, exam_name } = req.body
+
+    const grades = await Grade.findAll({
+        where: {
+            for_class,
+            exam_name
+        }
+    });
+
+    return res.status(200).json(grades)
 
 }

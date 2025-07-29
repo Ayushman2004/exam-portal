@@ -6,7 +6,7 @@ const {
     signup,
     login,
 } = require("../controller/admin_controller");
-const { grade } = require("../controller/solution_controller")
+const { grade, grade_fetch } = require("../controller/solution_controller")
 
 router.post("/login", login);
 router.post("/signup", signup);
@@ -14,5 +14,6 @@ router.post("/signup", signup);
 router.use(auth);
 
 router.post("/grade", grade)
+router.post("/grade-fetch", grade_fetch)
 
 module.exports = router;
