@@ -32,7 +32,6 @@ exports.get = async (req, res) => {
     if (!set) return res.status(400).json({ error: "Invalid set" });    
 
     res.json({ 
-        id: set.id,
         name: set.name,
         for_class: set.for_class,
         held_at: set.held_at,
