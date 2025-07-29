@@ -11,7 +11,11 @@ const Solution = sequelize.define("Solution", {
     type: DataTypes.STRING, 
     allowNull: false 
 },
-  class: { 
+  rollno: { 
+    type: DataTypes.INTEGER, 
+    allowNull: true 
+},
+  for_class: { 
     type: DataTypes.STRING, 
     allowNull: true 
 },
