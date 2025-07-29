@@ -84,13 +84,26 @@ exports.grade =  async(req, res) => {
             }
         }
 
-        await Grade.create({
+        const g = Grade.findOne({
+            where:{
+                rollno: solution.rollno,
+                exam_name,
+                for_class
+            }
+        })
+
+        if(g){
+            console.log("rollno: " + solution.rollno + " already gradered")
+        }
+        else{
+            await Grade.create({
             name: solution.name,
             rollno: solution.rollno,
             for_class,
             exam_name,
             marks
         });
+        }
     }
 
     res.status(200).json({ message: "Grades calculated and saved successfully" });
