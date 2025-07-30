@@ -18,11 +18,11 @@ sequelize.sync()
     .catch(console.error);
 
 
-app.use("/admin", adminRouter)
-app.use("/user", userRouter)
-app.use("/student", studentRouter)
-app.use("/set", setRouter)
-app.use("/solution", solutionRouter)
+app.use("/api/admin", adminRouter)
+app.use("/api/user", userRouter)
+app.use("/api/student", studentRouter)
+app.use("/api/set", setRouter)
+app.use("/api/solution", solutionRouter)
 
 
 // Start server

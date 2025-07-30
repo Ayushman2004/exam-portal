@@ -84,7 +84,7 @@ exports.grade =  async(req, res) => {
             }
         }
 
-        const g = Grade.findOne({
+        const g = await Grade.findOne({
             where:{
                 rollno: solution.rollno,
                 exam_name,
